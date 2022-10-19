@@ -97,7 +97,7 @@ const patchMyUser = async (req, res) => {
 
 const deleteMyUser = async (req, res) => {
   try {
-    const { id } = req.user, user = await controllers.deleteUser(id)
+    const { id } = req.user, user = await controllers.updateUser(id, {status: 'inactive'})
     if(user){
       res.status(204).json(user)
     }else{

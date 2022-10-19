@@ -4,6 +4,7 @@ const { uuidGenerator } = require("./utils/functions")
 const usersRoutes = require("./users/users.routers")
 const authRouters = require("./auth/auth.routes")
 const db = require("./utils/database")
+const { initModels } = require("./models/initModels")
 console.log(uuidGenerator())
 
 const app = express(), prefix = '/api/v1/'
@@ -20,6 +21,7 @@ db.authenticate()
 db.sync()
 .then(()=> console.log('DB synced'))
 .catch(err=> console.log(err))
+initModels()
 
 app.get(prefix, (req, res) => {
   res.status(200).send({
