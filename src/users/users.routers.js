@@ -12,21 +12,21 @@ router.route('/me')
 .delete(passport.authenticate('jwt', {session: false}), service.deleteMyUser)
 
 router.route('/:id')
-.get(
-  passport.authenticate('jwt', {session: false}),
-  adminValidate,
-  service.getUserById
-)
-.patch(
-  passport.authenticate('jwt', {session: false}), 
-  adminValidate,
-  service.patchUser
-)
-.delete(
-  passport.authenticate('jwt', {session: false}),
-  adminValidate,
-  service.deleteUser
-)
+  .get(
+    passport.authenticate('jwt', {session: false}),
+    adminValidate,
+    service.getUserById
+  )
+  .patch(
+    passport.authenticate('jwt', {session: false}), 
+    adminValidate,
+    service.patchUser
+  )
+  .delete(
+    passport.authenticate('jwt', {session: false}),
+    adminValidate,
+    service.deleteUser
+  )
 
 
 module.exports = router

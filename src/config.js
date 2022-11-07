@@ -1,6 +1,5 @@
 require("dotenv").config()
 
-
 const PV = process.env, config = {
   port: PV.PORT || 2468,
   nodeEnv: PV.NODE_ENV || 'development',
@@ -13,5 +12,4 @@ const PV = process.env, config = {
   }
 }
 
-console.log(config)
 module.exports = config

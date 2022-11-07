@@ -1,9 +1,9 @@
 const Users = require("../models/user.model")
 const { uuidGenerator, hashPassword } = require("../utils/functions")
 
-const getAllUsers = () => Users.findAll()
+const getAllUsers = () => Users.findAll({where: {status: 'active'}})
 
-const getUserById = (id) => Users.findOne({where: {id}})
+const getUserById = (id) => Users.findOne({where: {id, status: 'active'}})
 
 const createUser = (data) => Users.create({
   id: uuidGenerator(),
@@ -17,7 +17,7 @@ const createUser = (data) => Users.create({
   country: data.country
 })
 
-const updateUser = (id, data) => Users.update(data, {where: {id}})
+const updateUser = (id, data) => Users.update(data, {where: {id}, status: 'active'})
 
 const deleteUser = (id) => Users.destroy({where: {id}})
 

@@ -1,11 +1,12 @@
 const express = require("express")
 const { port } = require("./config")
-const { uuidGenerator } = require("./utils/functions")
+
+//? Routes
 const usersRoutes = require("./users/users.routers")
 const authRouters = require("./auth/auth.routes")
+
 const db = require("./utils/database")
 const { initModels } = require("./models/initModels")
-console.log(uuidGenerator())
 
 const app = express(), prefix = '/api/v1/'
 
@@ -32,5 +33,5 @@ app.get(prefix, (req, res) => {
 
 
 app.listen(port, () => {
-  console.log('server is runing in port:', port)
+  console.log('Server is running in the port:', port)
 })
